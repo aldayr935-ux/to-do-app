@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom'
 
 function NotFound() {
   return (
-    <div style={{ textAlign: 'center', padding: '40px' }}>
-      <h1 style={{ fontSize: '6rem', color: '#6c63ff', margin: '0' }}>404</h1>
-      <h2 style={{ color: '#333' }}>Página no encontrada</h2>
-      <p style={{ color: '#888', margin: '16px 0' }}>
-        La página que buscas no existe o fue movida.
-      </p>
-      <Link to="/" className="volver">← Volver al inicio</Link>
+    <div className="text-center py-10">
+      <h1 className="text-8xl font-bold text-purple-500">404</h1>
+      <h2 className="text-2xl font-semibold text-gray-700 mt-2">Página no encontrada</h2>
+      <p className="text-gray-400 mt-3">La página que buscas no existe o fue movida.</p>
+      <Link to="/" className="inline-block mt-6 text-purple-500 font-semibold hover:underline">
+        ← Volver al inicio
+      </Link>
     </div>
   )
 }

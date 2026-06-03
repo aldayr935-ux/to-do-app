@@ -13,11 +13,7 @@ function Inicio() {
   }, [tareas])
 
   const agregarTarea = (texto) => {
-    const nueva = {
-      id: Date.now(),
-      texto: texto,
-      completada: false
-    }
+    const nueva = { id: Date.now(), texto, completada: false }
     setTareas([...tareas, nueva])
   }
 
@@ -33,7 +29,9 @@ function Inicio() {
 
   return (
     <div>
-      <h1>Mi Lista de Tareas</h1>
+      <h1 className="text-3xl font-bold text-center text-purple-600 mb-6">
+        Mi Lista de Tareas
+      </h1>
       <FormularioTarea onAgregar={agregarTarea} />
       <ListaTareas
         tareas={tareas}
