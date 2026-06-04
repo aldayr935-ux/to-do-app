@@ -8,8 +8,8 @@ function App() {
   return (
     <TareasProvider>
       <BrowserRouter>
-        <div className="min-h-screen bg-gray-100 flex items-start justify-center pt-16 px-4">
-          <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md">
+        <div className="min-h-screen bg-gray-100 flex items-start justify-center px-4 py-8 md:py-16">
+          <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8 w-full max-w-md">
             <Routes>
               <Route path="/" element={<Inicio />} />
               <Route path="*" element={<NotFound />} />

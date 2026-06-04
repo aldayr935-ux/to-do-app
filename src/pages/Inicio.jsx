@@ -9,8 +9,9 @@ function Inicio() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold text-center text-purple-600 mb-2">
-        <i className={`fas ${tipoLista.icono} mr-2`}></i> {tipoLista.label}
+      <h1 className="text-2xl md:text-3xl font-bold text-center text-purple-600 mb-2">
+        <i className={`fas ${tipoLista.icono} mr-2`}></i>
+        {tipoLista.label}
       </h1>
       <SelectorLista />
       <FormularioTarea />
