@@ -1,10 +1,14 @@
+import { useContext } from 'react'
+import { TareasContext } from '../context/TareasContext'
 import Tarea from './Tarea'
 
-function ListaTareas({ tareas, onEliminar, onCompletar }) {
+function ListaTareas() {
+  const { tareas } = useContext(TareasContext)
+
   if (tareas.length === 0) {
     return (
       <p className="text-center text-gray-400 mt-4">
-        No hay tareas todavía. ¡Agrega una!
+        No hay elementos todavía. ¡Agrega uno!
       </p>
     )
   }
@@ -12,12 +16,7 @@ function ListaTareas({ tareas, onEliminar, onCompletar }) {
   return (
     <ul className="flex flex-col gap-3">
       {tareas.map(tarea => (
-        <Tarea
-          key={tarea.id}
-          tarea={tarea}
-          onEliminar={onEliminar}
-          onCompletar={onCompletar}
-        />
+        <Tarea key={tarea.id} tarea={tarea} />
       ))}
     </ul>
   )

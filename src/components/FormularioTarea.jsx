@@ -1,11 +1,13 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { TareasContext } from '../context/TareasContext'
 
-function FormularioTarea({ onAgregar }) {
+function FormularioTarea() {
   const [texto, setTexto] = useState('')
+  const { agregarTarea } = useContext(TareasContext)
 
   const handleAgregar = () => {
     if (texto.trim() === '') return
-    onAgregar(texto)
+    agregarTarea(texto)
     setTexto('')
   }
 
@@ -14,7 +16,7 @@ function FormularioTarea({ onAgregar }) {
       <input
         type="text"
         value={texto}
-        placeholder="Nueva tarea..."
+        placeholder="Nuevo elemento..."
         onChange={(e) => setTexto(e.target.value)}
         onKeyDown={(e) => e.key === 'Enter' && handleAgregar()}
         className="flex-1 border-2 border-gray-200 rounded-lg px-4 py-2 text-sm outline-none focus:border-purple-400 transition"

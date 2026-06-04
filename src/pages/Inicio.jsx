@@ -1,43 +1,20 @@
-import { useState, useEffect } from 'react'
+import { useContext } from 'react'
+import { TareasContext } from '../context/TareasContext'
 import FormularioTarea from '../components/FormularioTarea'
 import ListaTareas from '../components/ListaTareas'
+import SelectorLista from '../components/SelectorLista'
 
 function Inicio() {
-  const [tareas, setTareas] = useState(() => {
-    const guardadas = localStorage.getItem('tareas')
-    return guardadas ? JSON.parse(guardadas) : []
-  })
-
-  useEffect(() => {
-    localStorage.setItem('tareas', JSON.stringify(tareas))
-  }, [tareas])
-
-  const agregarTarea = (texto) => {
-    const nueva = { id: Date.now(), texto, completada: false }
-    setTareas([...tareas, nueva])
-  }
-
-  const eliminarTarea = (id) => {
-    setTareas(tareas.filter(tarea => tarea.id !== id))
-  }
-
-  const completarTarea = (id) => {
-    setTareas(tareas.map(tarea =>
-      tarea.id === id ? { ...tarea, completada: !tarea.completada } : tarea
-    ))
-  }
+  const { tipoLista } = useContext(TareasContext)
 
   return (
     <div>
-      <h1 className="text-3xl font-bold text-center text-purple-600 mb-6">
-        Mi Lista de Tareas
+      <h1 className="text-3xl font-bold text-center text-purple-600 mb-2">
+        <i className={`fas ${tipoLista.icono} mr-2`}></i> {tipoLista.label}
       </h1>
-      <FormularioTarea onAgregar={agregarTarea} />
-      <ListaTareas
-        tareas={tareas}
-        onEliminar={eliminarTarea}
-        onCompletar={completarTarea}
-      />
+      <SelectorLista />
+      <FormularioTarea />
+      <ListaTareas />
     </div>
   )
 }
