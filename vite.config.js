@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
-    VitePWA({
+ VitePWA({
   registerType: 'autoUpdate',
   manifest: {
     name: 'To-Do App',
@@ -38,9 +38,11 @@ export default defineConfig({
       {
         src: '/screenshot-desktop.png',
         sizes: '1280x800',
-        type: 'image/png'
+        type: 'image/png',
         form_factor: 'wide'
       }
     ]
   }
+})
+  ],
 })
